@@ -1,0 +1,36 @@
+[versions]
+agp = "8.6.1"
+android-material = "1.12.0"
+androidx-fragment = "1.8.3"
+androidx-navigation = "2.8.1"
+build-android-compileSdk = "35"
+build-android-minSdk = "24"
+build-android-targetSdk = "34"
+build-javaVersion = "VERSION_17"
+build-jvmTarget = "17"
+google-ksp = "2.0.20-1.0.25"
+koin = "4.0.0"
+koin-ksp = "1.4.0-RC4"
+kotlin = "2.0.20"
+kotlinx-coroutines = "1.9.0"
+kotlinx-serialization = "1.7.3"
+
+[libraries]
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-ksp" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-ksp" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidx-navigation" }
