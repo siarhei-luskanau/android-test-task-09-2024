@@ -11,7 +11,7 @@ internal class CoreStorageImpl : CoreStorage {
     private var date: Date? = null
 
     override suspend fun saveBootEvent() {
-        count = count++
+        count += 1
         date = Date()
     }
 

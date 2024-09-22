@@ -8,14 +8,14 @@ import org.koin.dsl.module
 
 val uiSplashModule = module {
 
-    factory {
+    factory { (splashNavigationCallback: SplashNavigationCallback) ->
         SplashFragment { fragment: Fragment ->
             val viewModelFactory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     @Suppress("UNCHECKED_CAST")
                     return SplashViewModelImpl(
                         coreStorage = get(),
-                        splashNavigationCallback = get()
+                        splashNavigationCallback = splashNavigationCallback
                     ) as T
                 }
             }

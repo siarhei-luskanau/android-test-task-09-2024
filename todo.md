@@ -15,7 +15,7 @@
   immediately after Boot event is triggered.
 * ToDo: Use java.time.LocalDateTime with desugaring for API level 24. We can use kotlinx-datetime
   library.
-* ToDo: Add Unit tests to check CoreFormatterImpl formatting logic. 
+* ToDo: Add Unit tests to check CoreFormatterImpl formatting logic.
 * ToDo: Add CorePreferences (with DataStore) layer to store user settings, related the “Total
   dismissals allowed” and “Interval between dismissals” values.
 * ToDo: Update UIDashboard layer to update the “Total dismissals allowed” and “Interval between

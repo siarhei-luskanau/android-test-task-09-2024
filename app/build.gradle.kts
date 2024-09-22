@@ -36,9 +36,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain:domainBroadcast"))
     implementation(project(":navigation"))
-    implementation(project(":ui:uiDashboard"))
-    implementation(project(":ui:uiSplash"))
-    implementation(libs.koin.android)
 }

@@ -5,7 +5,10 @@ import androidx.fragment.app.FragmentFactory
 import org.koin.core.Koin
 import org.koin.core.parameter.parametersOf
 
-class KoinFragmentFactory(private val koin: Koin) : FragmentFactory() {
+class KoinFragmentFactory(
+    private val koin: Koin,
+    private val appNavigation: AppNavigation,
+) : FragmentFactory() {
 
     @Suppress("TooGenericExceptionCaught")
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment =
@@ -14,7 +17,7 @@ class KoinFragmentFactory(private val koin: Koin) : FragmentFactory() {
             koin.get(
                 clazz = clazz.kotlin,
                 qualifier = null,
-                parameters = { parametersOf() },
+                parameters = { parametersOf(appNavigation) },
             )
         } catch (koinThrowable: Throwable) {
             try {
