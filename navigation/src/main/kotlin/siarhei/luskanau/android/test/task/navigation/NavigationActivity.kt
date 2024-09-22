@@ -12,6 +12,7 @@ import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import org.koin.ksp.generated.module
+import siarhei.luskanau.android.test.task.core.formatter.CoreFormatterModule
 import siarhei.luskanau.android.test.task.core.storage.CoreStorageModule
 import siarhei.luskanau.android.test.task.navigation.databinding.ActivityNavigationBinding
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
@@ -28,6 +29,7 @@ class NavigationActivity : AppCompatActivity(R.layout.activity_navigation) {
                     single { AppNavigation(navController = navController) }
                     single<SplashNavigationCallback> { get<AppNavigation>() }
                 },
+                CoreFormatterModule().module,
                 CoreStorageModule().module,
                 uiDashboardModule,
                 uiSplashModule,

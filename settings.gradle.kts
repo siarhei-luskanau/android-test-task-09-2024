@@ -1,8 +1,9 @@
 rootProject.name = "AndroidTestTask092024"
 include(
     ":app",
-    ":domain:domainBroadcast",
+    ":core:coreFormatter",
     ":core:coreStorage",
+    ":domain:domainBroadcast",
     ":navigation",
     ":ui:uiCommon",
     ":ui:uiDashboard",

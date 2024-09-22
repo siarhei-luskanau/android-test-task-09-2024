@@ -4,10 +4,5 @@ import java.util.Date
 
 interface CoreStorage {
     suspend fun saveBootEvent()
-    suspend fun getBootEventInfo(): BootEventInfo
+    suspend fun getBootEventInfoByDays(): Map<Date, Int>
 }
-
-data class BootEventInfo(
-    val count: Int,
-    val date: Date?
-)

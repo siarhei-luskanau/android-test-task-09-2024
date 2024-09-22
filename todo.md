@@ -8,10 +8,10 @@
 * Comment: Apk files (debug and release variants) is uploads to GitHub actions
   artifacts https://github.com/siarhei-luskanau/android-test-task-09-2024/actions/workflows/actionsBuild.yml.
 
-* ToDo: Implement storage with SharedPreferences, DataStore or Room.
-* ToDo: Use java.time.LocalDateTime with desugaring for API level 24 in
-  core/coreStorage/src/main/kotlin/siarhei/luskanau/android/test/task/core/storage/CoreStorageImpl.kt.
-* ToDo: 
+* ToDo: Implement storage with Room and aggregation query.
+* ToDo: Use java.time.LocalDateTime with desugaring for API level 24. We can use kotlinx-datetime
+  library.
+* ToDo: Add Unit tests to check CoreFormatterImpl formatting logic. 
 
 
 

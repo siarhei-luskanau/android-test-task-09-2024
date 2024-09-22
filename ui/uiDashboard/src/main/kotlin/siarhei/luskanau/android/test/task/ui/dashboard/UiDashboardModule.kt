@@ -13,7 +13,10 @@ val uiDashboardModule = module {
             val viewModelFactory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     @Suppress("UNCHECKED_CAST")
-                    return DashboardViewModelImpl() as T
+                    return DashboardViewModelImpl(
+                        coreStorage = get(),
+                        coreFormatter = get()
+                    ) as T
                 }
             }
             ViewModelProvider(

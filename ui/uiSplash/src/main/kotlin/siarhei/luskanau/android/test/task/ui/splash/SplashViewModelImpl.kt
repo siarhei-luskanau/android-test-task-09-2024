@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.Factory
-import kotlin.time.Duration.Companion.seconds
+import kotlin.time.Duration.Companion.milliseconds
 
 @Factory
 internal class SplashViewModelImpl(
@@ -12,7 +12,7 @@ internal class SplashViewModelImpl(
 ) : SplashViewModel() {
     override fun onLaunched() {
         viewModelScope.launch {
-            delay(duration = 3.seconds)
+            delay(duration = 500.milliseconds)
             splashNavigationCallback.onSplashComplete()
         }
     }
