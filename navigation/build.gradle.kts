@@ -9,6 +9,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:coreStorage"))
     implementation(project(":ui:uiCommon"))
     implementation(project(":ui:uiDashboard"))
     implementation(project(":ui:uiSplash"))

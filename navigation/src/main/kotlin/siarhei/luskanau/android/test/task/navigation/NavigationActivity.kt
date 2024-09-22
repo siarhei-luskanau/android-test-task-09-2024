@@ -11,6 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
+import org.koin.ksp.generated.module
+import siarhei.luskanau.android.test.task.core.storage.CoreStorageModule
 import siarhei.luskanau.android.test.task.navigation.databinding.ActivityNavigationBinding
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
 import siarhei.luskanau.android.test.task.ui.splash.SplashNavigationCallback
@@ -21,13 +23,14 @@ class NavigationActivity : AppCompatActivity(R.layout.activity_navigation) {
     private val koin: Koin by lazy {
         startKoin {
             modules(
-                uiDashboardModule,
-                uiSplashModule,
                 module {
                     single<Context> { applicationContext }
                     single { AppNavigation(navController = navController) }
                     single<SplashNavigationCallback> { get<AppNavigation>() }
                 },
+                CoreStorageModule().module,
+                uiDashboardModule,
+                uiSplashModule,
             )
         }.koin
     }
