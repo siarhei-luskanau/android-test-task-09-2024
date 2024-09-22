@@ -13,7 +13,10 @@ val uiSplashModule = module {
             val viewModelFactory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     @Suppress("UNCHECKED_CAST")
-                    return SplashViewModelImpl(splashNavigationCallback = get()) as T
+                    return SplashViewModelImpl(
+                        coreStorage = get(),
+                        splashNavigationCallback = get()
+                    ) as T
                 }
             }
             ViewModelProvider(

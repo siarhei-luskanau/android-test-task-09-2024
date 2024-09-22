@@ -11,6 +11,7 @@ android {
 dependencies {
     implementation(project(":core:coreFormatter"))
     implementation(project(":core:coreStorage"))
+    implementation(project(":domain:domainBroadcast"))
     implementation(project(":ui:uiCommon"))
     implementation(project(":ui:uiDashboard"))
     implementation(project(":ui:uiSplash"))
