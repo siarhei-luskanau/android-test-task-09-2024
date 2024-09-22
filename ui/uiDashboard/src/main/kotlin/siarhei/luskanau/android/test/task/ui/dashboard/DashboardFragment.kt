@@ -13,9 +13,8 @@ import kotlinx.coroutines.launch
 import siarhei.luskanau.android.test.task.ui.common.BaseFragment
 import siarhei.luskanau.android.test.task.ui.dashboard.databinding.FragmentDashboardBinding
 
-class DashboardFragment(
-    presenterProvider: (fragment: Fragment) -> DashboardViewModel
-) : BaseFragment<DashboardViewModel>(presenterProvider) {
+class DashboardFragment(presenterProvider: (fragment: Fragment) -> DashboardViewModel) :
+    BaseFragment<DashboardViewModel>(presenterProvider) {
 
     private var fragmentBinding: FragmentDashboardBinding? = null
 

@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import siarhei.luskanau.android.test.task.ui.common.BaseFragment
 import siarhei.luskanau.android.test.task.ui.splash.databinding.FragmentSplashBinding
 
-class SplashFragment(
-    presenterProvider: (fragment: Fragment) -> SplashViewModel
-) : BaseFragment<SplashViewModel>(presenterProvider) {
+class SplashFragment(presenterProvider: (fragment: Fragment) -> SplashViewModel) :
+    BaseFragment<SplashViewModel>(presenterProvider) {
 
     override fun onCreateView(
         inflater: LayoutInflater,

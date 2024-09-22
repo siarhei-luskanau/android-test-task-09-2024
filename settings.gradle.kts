@@ -1,4 +1,4 @@
-rootProject.name = "AndroidTestTask092024"
+rootProject.name = "BootCounterApp"
 include(
     ":app",
     ":core:coreFormatter",

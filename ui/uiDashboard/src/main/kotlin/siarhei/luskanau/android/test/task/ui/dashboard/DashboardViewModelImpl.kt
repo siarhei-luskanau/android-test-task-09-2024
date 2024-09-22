@@ -10,7 +10,7 @@ import kotlin.time.Duration.Companion.seconds
 
 class DashboardViewModelImpl(
     private val coreStorage: CoreStorage,
-    private val coreFormatter: CoreFormatter,
+    private val coreFormatter: CoreFormatter
 ) : DashboardViewModel() {
 
     override fun onLaunched() {

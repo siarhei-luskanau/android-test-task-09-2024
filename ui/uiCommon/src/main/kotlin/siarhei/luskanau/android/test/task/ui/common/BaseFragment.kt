@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<T>(
-    private val viewModelProvider: (fragment: Fragment) -> T,
-) : Fragment() {
+abstract class BaseFragment<T>(private val viewModelProvider: (fragment: Fragment) -> T) :
+    Fragment() {
 
     protected val viewModel: T by lazy { viewModelProvider(this) }
 

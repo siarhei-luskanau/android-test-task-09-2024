@@ -4,3 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android).apply(false)
     alias(libs.plugins.navigation.safeargs.kotlin).apply(false)
 }
+
+allprojects {
+    apply(from = "$rootDir/ktlint.gradle")
+}

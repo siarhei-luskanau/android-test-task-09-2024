@@ -5,9 +5,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
 
-internal class SplashViewModelImpl(
-    private val splashNavigationCallback: SplashNavigationCallback
-) : SplashViewModel() {
+internal class SplashViewModelImpl(private val splashNavigationCallback: SplashNavigationCallback) :
+    SplashViewModel() {
 
     override fun onLaunched() {
         viewModelScope.launch {

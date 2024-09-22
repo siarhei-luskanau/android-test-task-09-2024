@@ -10,7 +10,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import org.koin.core.component.KoinComponent
 import siarhei.luskanau.android.test.task.navigation.databinding.ActivityNavigationBinding
 
-class NavigationActivity : AppCompatActivity(R.layout.activity_navigation), KoinComponent {
+class NavigationActivity :
+    AppCompatActivity(R.layout.activity_navigation),
+    KoinComponent {
 
     private val navController: NavController by lazy {
         (supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment)

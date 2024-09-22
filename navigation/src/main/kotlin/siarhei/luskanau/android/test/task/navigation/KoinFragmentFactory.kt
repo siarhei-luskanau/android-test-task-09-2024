@@ -5,25 +5,22 @@ import androidx.fragment.app.FragmentFactory
 import org.koin.core.Koin
 import org.koin.core.parameter.parametersOf
 
-class KoinFragmentFactory(
-    private val koin: Koin,
-    private val appNavigation: AppNavigation,
-) : FragmentFactory() {
+class KoinFragmentFactory(private val koin: Koin, private val appNavigation: AppNavigation) :
+    FragmentFactory() {
 
     @Suppress("TooGenericExceptionCaught")
-    override fun instantiate(classLoader: ClassLoader, className: String): Fragment =
+    override fun instantiate(classLoader: ClassLoader, className: String): Fragment = try {
+        val clazz = loadFragmentClass(classLoader, className)
+        koin.get(
+            clazz = clazz.kotlin,
+            qualifier = null,
+            parameters = { parametersOf(appNavigation) }
+        )
+    } catch (koinThrowable: Throwable) {
         try {
-            val clazz = loadFragmentClass(classLoader, className)
-            koin.get(
-                clazz = clazz.kotlin,
-                qualifier = null,
-                parameters = { parametersOf(appNavigation) },
-            )
-        } catch (koinThrowable: Throwable) {
-            try {
-                super.instantiate(classLoader, className)
-            } catch (_: Throwable) {
-                throw koinThrowable
-            }
+            super.instantiate(classLoader, className)
+        } catch (_: Throwable) {
+            throw koinThrowable
         }
+    }
 }

@@ -8,5 +8,5 @@ import java.util.Date
 @Entity(tableName = "boot_event")
 data class BootEvent(
     @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) val id: Int?,
-    @ColumnInfo(name = "date") val date: Date,
+    @ColumnInfo(name = "date") val date: Date
 )

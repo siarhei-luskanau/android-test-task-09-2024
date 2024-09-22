@@ -11,7 +11,9 @@ import siarhei.luskanau.android.test.task.core.storage.CoreStorageModule
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
 import siarhei.luskanau.android.test.task.ui.splash.uiSplashModule
 
-class AppApplication : Application(), KoinComponent {
+class AppApplication :
+    Application(),
+    KoinComponent {
 
     override fun onCreate() {
         super.onCreate()
@@ -26,7 +28,7 @@ class AppApplication : Application(), KoinComponent {
                 CoreFormatterModule().module,
                 CoreStorageModule().module,
                 uiDashboardModule,
-                uiSplashModule,
+                uiSplashModule
             )
         }
     }
