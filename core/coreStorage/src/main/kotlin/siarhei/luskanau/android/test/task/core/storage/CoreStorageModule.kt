@@ -11,7 +11,7 @@ import siarhei.luskanau.android.test.task.core.storage.room.AppDatabase
 @ComponentScan
 class CoreStorageModule {
     @Single
-    fun appDatabase(context: Context): AppDatabase = Room.databaseBuilder(
+    internal fun appDatabase(context: Context): AppDatabase = Room.databaseBuilder(
         context = context,
         klass = AppDatabase::class.java,
         name = "database-name"

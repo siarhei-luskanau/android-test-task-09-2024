@@ -1,12 +1,12 @@
 package siarhei.luskanau.android.test.task.ui.dashboard
 
 import androidx.lifecycle.viewModelScope
+import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import siarhei.luskanau.android.test.task.core.formatter.CoreFormatter
 import siarhei.luskanau.android.test.task.core.storage.CoreStorage
-import kotlin.time.Duration.Companion.seconds
 
 class DashboardViewModelImpl(
     private val coreStorage: CoreStorage,

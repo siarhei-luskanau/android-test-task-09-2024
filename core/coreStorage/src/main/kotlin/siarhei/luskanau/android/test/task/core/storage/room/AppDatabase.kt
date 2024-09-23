@@ -6,6 +6,6 @@ import androidx.room.TypeConverters
 
 @Database(entities = [BootEvent::class], version = 1)
 @TypeConverters(value = [DateConverter::class])
-abstract class AppDatabase : RoomDatabase() {
+internal abstract class AppDatabase : RoomDatabase() {
     abstract fun bootEventDao(): BootEventDao
 }

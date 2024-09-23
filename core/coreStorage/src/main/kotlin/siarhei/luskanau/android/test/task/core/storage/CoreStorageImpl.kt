@@ -1,9 +1,9 @@
 package siarhei.luskanau.android.test.task.core.storage
 
+import java.util.Date
 import org.koin.core.annotation.Single
 import siarhei.luskanau.android.test.task.core.storage.room.AppDatabase
 import siarhei.luskanau.android.test.task.core.storage.room.BootEvent
-import java.util.Date
 
 @Single
 internal class CoreStorageImpl(private val appDatabase: AppDatabase) : CoreStorage {

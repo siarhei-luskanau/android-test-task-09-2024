@@ -1,9 +1,9 @@
 package siarhei.luskanau.android.test.task.core.formatter
 
-import org.koin.core.annotation.Single
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
+import org.koin.core.annotation.Single
 
 @Single
 internal class CoreFormatterImpl : CoreFormatter {
