@@ -11,10 +11,9 @@ interface BootEventDao {
     suspend fun getAll(): List<BootEvent>
 
     @Query(
-        "SELECT" +
-                " (date/(26*60*60*1000)*(26*60*60*1000)) as date," +
-                " count(date/(26*60*60*1000)) as count " +
-                "FROM boot_event"
+        "SELECT date, count(date(date/1000, 'unixepoch')) as count " +
+                "FROM  boot_event " +
+                "GROUP BY date(date/1000, 'unixepoch')"
     )
     suspend fun getCountByDays(): List<BootEventCount>
 
