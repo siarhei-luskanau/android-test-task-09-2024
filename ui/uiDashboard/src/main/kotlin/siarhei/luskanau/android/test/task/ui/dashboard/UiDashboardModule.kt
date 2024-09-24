@@ -14,8 +14,9 @@ val uiDashboardModule = module {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     @Suppress("UNCHECKED_CAST")
                     return DashboardViewModelImpl(
-                        coreStorage = get(),
-                        coreFormatter = get()
+                        appPreference = get(),
+                        coreFormatter = get(),
+                        coreStorage = get()
                     ) as T
                 }
             }

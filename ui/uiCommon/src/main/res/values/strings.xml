@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="total_dismissals_allowed">Total dismissals allowed</string>
+    <string name="interval_between_dismissals">Interval between dismissals</string>
+</resources>

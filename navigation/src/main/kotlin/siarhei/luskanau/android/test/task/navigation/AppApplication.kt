@@ -7,6 +7,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
 import org.koin.ksp.generated.module
 import siarhei.luskanau.android.test.task.core.formatter.CoreFormatterModule
+import siarhei.luskanau.android.test.task.core.preferences.CorePreferencesModule
 import siarhei.luskanau.android.test.task.core.storage.CoreStorageModule
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
 import siarhei.luskanau.android.test.task.ui.splash.uiSplashModule
@@ -26,6 +27,7 @@ class AppApplication :
             // Load modules
             modules(
                 CoreFormatterModule().module,
+                CorePreferencesModule().module,
                 CoreStorageModule().module,
                 uiDashboardModule,
                 uiSplashModule

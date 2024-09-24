@@ -10,6 +10,7 @@ android {
 
 dependencies {
     implementation(project(":core:coreFormatter"))
+    implementation(project(":core:corePreferences"))
     implementation(project(":core:coreStorage"))
     implementation(project(":domain:domainBroadcast"))
     implementation(project(":ui:uiCommon"))

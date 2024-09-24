@@ -9,6 +9,7 @@ android {
 
 dependencies {
     implementation(project(":core:coreFormatter"))
+    implementation(project(":core:corePreferences"))
     implementation(project(":core:coreStorage"))
     implementation(project(":ui:uiCommon"))
     implementation(libs.androidx.navigation.fragment.ktx)

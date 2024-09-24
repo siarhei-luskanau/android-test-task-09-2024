@@ -2,6 +2,7 @@ rootProject.name = "BootCounterApp"
 include(
     ":app",
     ":core:coreFormatter",
+    ":core:corePreferences",
     ":core:coreStorage",
     ":domain:domainBroadcast",
     ":navigation",
