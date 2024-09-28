@@ -11,7 +11,7 @@ import siarhei.luskanau.android.test.task.core.formatter.CoreFormatter
 import siarhei.luskanau.android.test.task.core.preferences.AppPreference
 import siarhei.luskanau.android.test.task.core.storage.CoreStorage
 
-class DashboardViewModelImpl(
+internal class DashboardViewModelImpl(
     private val appPreference: AppPreference,
     private val coreFormatter: CoreFormatter,
     private val coreStorage: CoreStorage

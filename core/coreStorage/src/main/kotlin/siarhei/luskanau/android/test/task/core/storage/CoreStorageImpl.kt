@@ -15,4 +15,8 @@ internal class CoreStorageImpl(private val appDatabase: AppDatabase) : CoreStora
     override suspend fun getBootEventInfoByDays(): Map<Date, Int> = appDatabase.bootEventDao()
         .getCountByDays()
         .associate { it.date to it.count }
+
+    override fun getBootEventLastTwo(): List<Date> = appDatabase.bootEventDao()
+        .getLastTwo()
+        .map { it.date }
 }

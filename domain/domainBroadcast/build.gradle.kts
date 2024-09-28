@@ -7,5 +7,6 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain:domainWork"))
     implementation(project(":core:coreStorage"))
 }
