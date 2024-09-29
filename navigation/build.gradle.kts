@@ -10,6 +10,7 @@ android {
 
 dependencies {
     implementation(project(":core:coreFormatter"))
+    implementation(project(":core:corePermissions"))
     implementation(project(":core:corePreferences"))
     implementation(project(":core:coreStorage"))
     implementation(project(":domain:domainBroadcast"))
@@ -17,6 +18,7 @@ dependencies {
     implementation(project(":domain:domainWork"))
     implementation(project(":ui:uiCommon"))
     implementation(project(":ui:uiDashboard"))
+    implementation(project(":ui:uiPermissions"))
     implementation(project(":ui:uiSplash"))
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

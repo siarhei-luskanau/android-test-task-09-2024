@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "siarhei.luskanau.android.test.task.ui.splash"
+    namespace = "siarhei.luskanau.android.test.task.ui.permissions"
 }
 
 dependencies {

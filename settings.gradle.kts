@@ -2,6 +2,7 @@ rootProject.name = "BootCounterApp"
 include(
     ":app",
     ":core:coreFormatter",
+    ":core:corePermissions",
     ":core:corePreferences",
     ":core:coreStorage",
     ":domain:domainBroadcast",
@@ -10,6 +11,7 @@ include(
     ":navigation",
     ":ui:uiCommon",
     ":ui:uiDashboard",
+    ":ui:uiPermissions",
     ":ui:uiSplash"
 )
 

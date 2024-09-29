@@ -13,11 +13,13 @@ import org.koin.core.component.KoinComponent
 import org.koin.dsl.module
 import org.koin.ksp.generated.module
 import siarhei.luskanau.android.test.task.core.formatter.CoreFormatterModule
+import siarhei.luskanau.android.test.task.core.permissions.CorePermissionsModule
 import siarhei.luskanau.android.test.task.core.preferences.CorePreferencesModule
 import siarhei.luskanau.android.test.task.core.storage.CoreStorageModule
 import siarhei.luskanau.android.test.task.domain.notifications.AppNotificationService
 import siarhei.luskanau.android.test.task.domain.work.domainWorkModule
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
+import siarhei.luskanau.android.test.task.ui.permissions.uiPermissionsModule
 import siarhei.luskanau.android.test.task.ui.splash.uiSplashModule
 
 class AppApplication :
@@ -30,10 +32,12 @@ class AppApplication :
             androidContext(this@AppApplication)
             modules(
                 CoreFormatterModule().module,
+                CorePermissionsModule().module,
                 CorePreferencesModule().module,
                 CoreStorageModule().module,
                 domainWorkModule,
                 uiDashboardModule,
+                uiPermissionsModule,
                 uiSplashModule,
                 module {
                     single<AppNotificationService> {

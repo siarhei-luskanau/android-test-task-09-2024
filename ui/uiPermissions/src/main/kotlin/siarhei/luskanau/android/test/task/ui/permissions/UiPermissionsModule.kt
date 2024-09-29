@@ -1,4 +1,4 @@
-package siarhei.luskanau.android.test.task.ui.splash
+package siarhei.luskanau.android.test.task.ui.permissions
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
@@ -6,15 +6,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import org.koin.dsl.module
 
-val uiSplashModule = module {
+val uiPermissionsModule = module {
 
-    factory { (splashNavigationCallback: SplashNavigationCallback) ->
-        SplashFragment { fragment: Fragment ->
+    factory { (permissionsNavigationCallback: PermissionsNavigationCallback) ->
+        PermissionsFragment { fragment: Fragment ->
             val viewModelFactory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     @Suppress("UNCHECKED_CAST")
-                    return SplashViewModelImpl(
-                        splashNavigationCallback = splashNavigationCallback,
+                    return PermissionsViewModelImpl(
+                        permissionsNavigationCallback = permissionsNavigationCallback,
                         corePermissions = get()
                     ) as T
                 }
@@ -22,7 +22,7 @@ val uiSplashModule = module {
             ViewModelProvider(
                 fragment as ViewModelStoreOwner,
                 viewModelFactory
-            )[SplashViewModel::class.java]
+            )[PermissionsViewModel::class.java]
         }
     }
 }

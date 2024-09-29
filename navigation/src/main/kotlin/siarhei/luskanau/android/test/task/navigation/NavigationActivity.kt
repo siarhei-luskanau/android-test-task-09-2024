@@ -20,7 +20,13 @@ class NavigationActivity :
     }
 
     private val appBarConfiguration: AppBarConfiguration by lazy {
-        AppBarConfiguration(navController.graph)
+        AppBarConfiguration(
+            topLevelDestinationIds = setOf(
+                siarhei.luskanau.android.test.task.ui.dashboard.R.id.nav_dashboard_fragment,
+                siarhei.luskanau.android.test.task.ui.permissions.R.id.nav_permissions_fragment,
+                siarhei.luskanau.android.test.task.ui.splash.R.id.nav_splash_fragment
+            )
+        )
     }
 
     private val binding by lazy { ActivityNavigationBinding.bind(findViewById(R.id.container)) }
