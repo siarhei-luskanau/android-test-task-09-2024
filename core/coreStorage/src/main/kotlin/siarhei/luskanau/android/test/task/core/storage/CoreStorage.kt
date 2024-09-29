@@ -1,9 +1,9 @@
 package siarhei.luskanau.android.test.task.core.storage
 
-import java.util.Date
+import kotlinx.datetime.LocalDateTime
 
 interface CoreStorage {
     suspend fun saveBootEvent()
-    suspend fun getBootEventInfoByDays(): Map<Date, Int>
-    fun getBootEventLastTwo(): List<Date>
+    suspend fun getBootEventInfoByDays(): Map<LocalDateTime, Int>
+    fun getBootEventLastTwo(): List<LocalDateTime>
 }

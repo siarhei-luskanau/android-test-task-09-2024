@@ -29,6 +29,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.valueOf(libs.versions.build.javaVersion.get())
         targetCompatibility = JavaVersion.valueOf(libs.versions.build.javaVersion.get())
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = libs.versions.build.jvmTarget.get()
@@ -36,5 +37,6 @@ android {
 }
 
 dependencies {
+    coreLibraryDesugaring(libs.android.desugar)
     implementation(project(":navigation"))
 }

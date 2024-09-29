@@ -20,6 +20,7 @@ android {
         targetCompatibility = JavaVersion.valueOf(
             libs.findVersion("build-javaVersion").get().requiredVersion
         )
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = libs.findVersion("build-jvmTarget").get().requiredVersion
@@ -27,9 +28,11 @@ android {
 }
 
 dependencies {
+    coreLibraryDesugaring(libs.findLibrary("android-desugar").get())
     implementation(libs.findLibrary("android-material").get())
     implementation(libs.findLibrary("androidx-fragment-ktx").get())
     implementation(libs.findLibrary("koin-annotations").get())
     implementation(libs.findLibrary("koin-core").get())
     implementation(libs.findLibrary("kotlinx-coroutines-core").get())
+    implementation(libs.findLibrary("kotlinx-datetime").get())
 }
