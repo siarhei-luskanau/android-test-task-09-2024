@@ -7,16 +7,14 @@ import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import kotlin.time.Duration.Companion.minutes
 import kotlinx.coroutines.delay
+import org.koin.core.component.KoinComponent
 import siarhei.luskanau.android.test.task.domain.notifications.AppNotificationService
 
-internal class OnBootEventWorker(
-    context: Context,
-    workerParams: WorkerParameters,
-    private val appNotificationService: AppNotificationService
-) : CoroutineWorker(
-    context,
-    workerParams
-) {
+internal class OnBootEventWorker(context: Context, workerParams: WorkerParameters) :
+    CoroutineWorker(context, workerParams),
+    KoinComponent {
+
+    private val appNotificationService: AppNotificationService = getKoin().get()
 
     override suspend fun getForegroundInfo(): ForegroundInfo = ForegroundInfo(
         appNotificationService.getBootInfoNotificationId(),
@@ -24,7 +22,6 @@ internal class OnBootEventWorker(
     )
 
     override suspend fun doWork(): Result = try {
-        // setForeground(getForegroundInfo())
         delay(duration = 1.minutes)
         Result.success()
     } catch (throwable: Throwable) {

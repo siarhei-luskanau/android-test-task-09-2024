@@ -1,21 +1,25 @@
 package siarhei.luskanau.android.test.task.domain.work
 
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
+import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkManager
+import org.koin.core.annotation.Single
 import siarhei.luskanau.android.test.task.domain.work.worker.OnBootEventWorker
 
-@RequiresApi(Build.VERSION_CODES.O)
-internal class WorkService26Impl(private val context: Context) : WorkService {
+@Single
+internal class WorkServiceImpl(private val context: Context) : WorkService {
 
-    override fun onBootEventReceive() {
+    override suspend fun onBootEventReceive() {
         WorkManager.getInstance(context).enqueueUniqueWork(
             OnBootEventWorker::class.java.simpleName,
-            ExistingWorkPolicy.KEEP,
-            OneTimeWorkRequest.from(OnBootEventWorker::class.java)
+            ExistingWorkPolicy.REPLACE,
+            OneTimeWorkRequest.Builder(
+                OnBootEventWorker::class.java
+            )
+                .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+                .build()
         )
     }
 

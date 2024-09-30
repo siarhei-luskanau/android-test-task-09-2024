@@ -9,10 +9,6 @@
   artifacts https://github.com/siarhei-luskanau/android-test-task-09-2024/actions/workflows/actionsBuild.yml.
 
 * Comment: CoreStorage is implemented with Room and aggregation query.
-* ToDo: Implement CoreStorage with Flow approach. This will take possibility to update UI
-  immediately after Boot event is triggered.
-* ToDo: Use java.time.LocalDateTime with desugaring for API level 24. We can use kotlinx-datetime
-  library.
 * ToDo: Add Unit tests to check CoreFormatterImpl formatting logic.
 * Comment: CorePreferences is implemented using DataStore to store user settings, related the “Total
   dismissals allowed” and “Interval between dismissals” values.

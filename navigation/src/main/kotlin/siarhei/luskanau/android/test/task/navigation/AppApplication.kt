@@ -1,8 +1,6 @@
 package siarhei.luskanau.android.test.task.navigation
 
-import android.annotation.SuppressLint
 import android.app.Application
-import androidx.core.app.NotificationManagerCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +15,8 @@ import siarhei.luskanau.android.test.task.core.permissions.CorePermissionsModule
 import siarhei.luskanau.android.test.task.core.preferences.CorePreferencesModule
 import siarhei.luskanau.android.test.task.core.storage.CoreStorageModule
 import siarhei.luskanau.android.test.task.domain.notifications.AppNotificationService
-import siarhei.luskanau.android.test.task.domain.work.domainWorkModule
+import siarhei.luskanau.android.test.task.domain.work.DomainWorkModule
+import siarhei.luskanau.android.test.task.domain.work.WorkService
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
 import siarhei.luskanau.android.test.task.ui.permissions.uiPermissionsModule
 import siarhei.luskanau.android.test.task.ui.splash.uiSplashModule
@@ -35,14 +34,14 @@ class AppApplication :
                 CorePermissionsModule().module,
                 CorePreferencesModule().module,
                 CoreStorageModule().module,
-                domainWorkModule,
+                DomainWorkModule().module,
                 uiDashboardModule,
                 uiPermissionsModule,
                 uiSplashModule,
                 module {
                     single<AppNotificationService> {
                         AppNotificationServiceImpl(
-                            context = get(),
+                            context = androidContext(),
                             coreStorage = get(),
                             coreFormatter = get()
                         )
@@ -53,16 +52,12 @@ class AppApplication :
         }
     }
 
-    @SuppressLint("MissingPermission")
     override fun onCreate() {
         super.onCreate()
 
-        val appNotificationService: AppNotificationService = getKoin().get()
+        val workService: WorkService = getKoin().get()
         CoroutineScope(Dispatchers.IO).launch {
-            NotificationManagerCompat.from(applicationContext).notify(
-                appNotificationService.getBootInfoNotificationId(),
-                appNotificationService.getBootInfoNotification()
-            )
+            workService.onBootEventReceive()
         }
     }
 }

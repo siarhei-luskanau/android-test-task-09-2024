@@ -12,21 +12,21 @@
         android:id="@+id/action_splash_to_dashboard"
         app:destination="@id/nav_dashboard_xml"
         app:launchSingleTop="true"
-        app:popUpTo="@id/nav_dashboard_fragment"
+        app:popUpTo="@id/nav_splash_xml"
         app:popUpToInclusive="true" />
 
     <action
         android:id="@+id/action_splash_to_permissions"
         app:destination="@id/nav_permissions_xml"
         app:launchSingleTop="true"
-        app:popUpTo="@id/nav_permissions_fragment"
+        app:popUpTo="@id/nav_splash_xml"
         app:popUpToInclusive="true" />
 
     <action
         android:id="@+id/action_permissions_to_dashboard"
         app:destination="@id/nav_dashboard_xml"
         app:launchSingleTop="true"
-        app:popUpTo="@id/nav_dashboard_fragment"
+        app:popUpTo="@id/nav_permissions_xml"
         app:popUpToInclusive="true" />
 
 </navigation>
