@@ -30,10 +30,10 @@ internal class AppNotificationServiceImpl(
 
     override fun getBootInfoNotificationId(): Int = NOTIFICATION_ID
 
-    override fun getBootInfoNotification(): Notification =
+    override fun getBootInfoNotification(runAttemptCount: Int): Notification =
         NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(UiCommonR.drawable.ic_android)
-            .setContentTitle(context.getString(UiCommonR.string.app_name))
+            .setContentTitle(context.getString(UiCommonR.string.app_name) + " $runAttemptCount")
             .setContentText(
                 coreStorage.getBootEventLastTwo().let { events ->
                     coreFormatter.formatNotificationMessage(
@@ -63,18 +63,6 @@ internal class AppNotificationServiceImpl(
                 )
             )
             .build()
-
-    override fun showBootInfoNotification() {
-        context.getSystemService<NotificationManager>()?.notify(
-            BOOT_INFO_NOTIFICATION_ID,
-            getBootInfoNotification()
-        )
-    }
-
-    override fun hideBootInfoNotification() {
-        context.getSystemService<NotificationManager>()
-            ?.cancel(BOOT_INFO_NOTIFICATION_ID)
-    }
 
     private fun createChannel(context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -1,9 +1,6 @@
 package siarhei.luskanau.android.test.task.navigation
 
 import android.app.Application
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.workmanager.koin.workManagerFactory
 import org.koin.androix.startup.KoinStartup.onKoinStartup
@@ -54,10 +51,7 @@ class AppApplication :
 
     override fun onCreate() {
         super.onCreate()
-
         val workService: WorkService = getKoin().get()
-        CoroutineScope(Dispatchers.IO).launch {
-            workService.onBootEventReceive()
-        }
+        workService.onBootEventReceive()
     }
 }
