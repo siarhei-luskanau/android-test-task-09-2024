@@ -12,7 +12,8 @@ include(
     ":ui:uiCommon",
     ":ui:uiDashboard",
     ":ui:uiPermissions",
-    ":ui:uiSplash"
+    ":ui:uiSplash",
+    ":ui:uiWorkManager"
 )
 
 pluginManagement {

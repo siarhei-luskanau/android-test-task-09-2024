@@ -4,5 +4,5 @@ import android.app.Notification
 
 interface AppNotificationService {
     fun getBootInfoNotificationId(): Int
-    fun getBootInfoNotification(runAttemptCount: Int): Notification
+    fun getBootInfoNotification(): Notification
 }

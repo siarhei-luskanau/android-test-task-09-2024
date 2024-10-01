@@ -12,7 +12,7 @@ internal class PeriodicNotificationWork(context: Context, workerParams: WorkerPa
     private val workService: WorkService = getKoin().get()
 
     override suspend fun doWorkDelegate(): Result {
-        workService.enqueueWorkWithNotification(runAttemptCount = runAttemptCount)
+        workService.enqueueWorkWithNotification()
         return Result.success()
     }
 }

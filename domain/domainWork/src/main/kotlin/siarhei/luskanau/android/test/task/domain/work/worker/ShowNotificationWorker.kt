@@ -16,9 +16,7 @@ internal class ShowNotificationWorker(context: Context, workerParams: WorkerPara
 
     override suspend fun getForegroundInfo(): ForegroundInfo = ForegroundInfo(
         appNotificationService.getBootInfoNotificationId(),
-        appNotificationService.getBootInfoNotification(
-            runAttemptCount = inputData.getInt("runAttemptCount", 0)
-        )
+        appNotificationService.getBootInfoNotification()
     )
 
     override suspend fun doWorkDelegate(): Result {

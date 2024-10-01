@@ -7,6 +7,7 @@
     <include app:graph="@navigation/nav_included_dashboard" />
     <include app:graph="@navigation/nav_included_permissions" />
     <include app:graph="@navigation/nav_included_splash" />
+    <include app:graph="@navigation/nav_included_work_manager" />
 
     <action
         android:id="@+id/action_splash_to_dashboard"
@@ -28,5 +29,9 @@
         app:launchSingleTop="true"
         app:popUpTo="@id/nav_permissions_xml"
         app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_dashboard_to_work_manager"
+        app:destination="@id/nav_work_manager_xml" />
 
 </navigation>

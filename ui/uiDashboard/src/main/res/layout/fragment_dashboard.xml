@@ -58,6 +58,18 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/workManagerButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="WorkManager monitor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/intervalBetweenDismissalsInputLayout" />
+
             <TextView
                 android:id="@+id/textBootInfo"
                 style="@style/TextAppearance.AppCompat.Body1"
@@ -67,7 +79,7 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/intervalBetweenDismissalsInputLayout" />
+                app:layout_constraintTop_toBottomOf="@id/workManagerButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

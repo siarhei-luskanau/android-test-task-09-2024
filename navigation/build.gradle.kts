@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":ui:uiDashboard"))
     implementation(project(":ui:uiPermissions"))
     implementation(project(":ui:uiSplash"))
+    implementation(project(":ui:uiWorkManager"))
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.koin.androidx.startup)

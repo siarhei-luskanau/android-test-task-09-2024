@@ -1,4 +1,4 @@
-package siarhei.luskanau.android.test.task.ui.dashboard
+package siarhei.luskanau.android.test.task.ui.workmanager
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
@@ -6,25 +6,22 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import org.koin.dsl.module
 
-val uiDashboardModule = module {
+val uiWorkManager = module {
 
-    factory { (dashboardNavigationCallback: DashboardNavigationCallback) ->
-        DashboardFragment { fragment: Fragment ->
+    factory { (workManagerNavigationCallback: WorkManagerNavigationCallback) ->
+        WorkManagerFragment { fragment: Fragment ->
             val viewModelFactory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     @Suppress("UNCHECKED_CAST")
-                    return DashboardViewModelImpl(
-                        dashboardNavigationCallback = dashboardNavigationCallback,
-                        appPreference = get(),
-                        coreFormatter = get(),
-                        coreStorage = get()
+                    return WorkManagerViewModelImpl(
+                        workManagerNavigationCallback = workManagerNavigationCallback
                     ) as T
                 }
             }
             ViewModelProvider(
                 fragment as ViewModelStoreOwner,
                 viewModelFactory
-            )[DashboardViewModel::class.java]
+            )[WorkManagerViewModel::class.java]
         }
     }
 }

@@ -56,10 +56,14 @@ class DashboardFragment(viewModelProvider: (fragment: Fragment) -> DashboardView
             intervalBetweenDismissalsEditText.addTextChangedListener(
                 intervalBetweenDismissalsTextWatcher
             )
+            workManagerButton.setOnClickListener {
+                viewModel.onWorkManagerButtonClicked()
+            }
             lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                     viewModel.viewState.collect { viewState ->
                         loadingProgressContainer.isVisible = viewState.isLoading
+                        workManagerButton.isVisible = !viewState.isLoading
                         textBootInfo.isVisible = !viewState.isLoading
                         if (viewState.totalDismissalsAllowed !=
                             totalDismissalsAllowedEditText.text.toString()
@@ -101,6 +105,7 @@ class DashboardFragment(viewModelProvider: (fragment: Fragment) -> DashboardView
             intervalBetweenDismissalsEditText.removeTextChangedListener(
                 intervalBetweenDismissalsTextWatcher
             )
+            workManagerButton.setOnClickListener(null)
         }
     }
 }

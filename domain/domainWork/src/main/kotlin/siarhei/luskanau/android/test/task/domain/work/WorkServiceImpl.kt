@@ -2,7 +2,6 @@ package siarhei.luskanau.android.test.task.domain.work
 
 import android.annotation.SuppressLint
 import android.content.Context
-import androidx.work.Data
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
@@ -27,19 +26,17 @@ internal class WorkServiceImpl(private val context: Context) : WorkService {
                 repeatInterval = Duration.ofMinutes(15)
             )
                 .addTag("all")
-                .clearNextScheduleTimeOverride()
                 .build()
         )
     }
 
-    override fun enqueueWorkWithNotification(runAttemptCount: Int) {
+    override fun enqueueWorkWithNotification() {
         WorkManager.getInstance(context).enqueueUniqueWork(
             ShowNotificationWorker::class.java.simpleName,
             ExistingWorkPolicy.REPLACE,
             OneTimeWorkRequest.Builder(ShowNotificationWorker::class.java)
                 .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .addTag("all")
-                .setInputData(Data.Builder().putInt("runAttemptCount", runAttemptCount).build())
                 .build()
         )
     }

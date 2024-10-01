@@ -17,6 +17,7 @@ import siarhei.luskanau.android.test.task.domain.work.WorkService
 import siarhei.luskanau.android.test.task.ui.dashboard.uiDashboardModule
 import siarhei.luskanau.android.test.task.ui.permissions.uiPermissionsModule
 import siarhei.luskanau.android.test.task.ui.splash.uiSplashModule
+import siarhei.luskanau.android.test.task.ui.workmanager.uiWorkManager
 
 class AppApplication :
     Application(),
@@ -35,6 +36,7 @@ class AppApplication :
                 uiDashboardModule,
                 uiPermissionsModule,
                 uiSplashModule,
+                uiWorkManager,
                 module {
                     single<AppNotificationService> {
                         AppNotificationServiceImpl(

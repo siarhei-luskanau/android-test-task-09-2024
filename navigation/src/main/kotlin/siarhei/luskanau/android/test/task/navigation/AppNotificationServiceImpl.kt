@@ -30,10 +30,10 @@ internal class AppNotificationServiceImpl(
 
     override fun getBootInfoNotificationId(): Int = NOTIFICATION_ID
 
-    override fun getBootInfoNotification(runAttemptCount: Int): Notification =
+    override fun getBootInfoNotification(): Notification =
         NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(UiCommonR.drawable.ic_android)
-            .setContentTitle(context.getString(UiCommonR.string.app_name) + " $runAttemptCount")
+            .setContentTitle(context.getString(UiCommonR.string.app_name))
             .setContentText(
                 coreStorage.getBootEventLastTwo().let { events ->
                     coreFormatter.formatNotificationMessage(

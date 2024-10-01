@@ -12,6 +12,7 @@ import siarhei.luskanau.android.test.task.core.preferences.AppPreference
 import siarhei.luskanau.android.test.task.core.storage.CoreStorage
 
 internal class DashboardViewModelImpl(
+    private val dashboardNavigationCallback: DashboardNavigationCallback,
     private val appPreference: AppPreference,
     private val coreFormatter: CoreFormatter,
     private val coreStorage: CoreStorage
@@ -92,5 +93,9 @@ internal class DashboardViewModelImpl(
                 )
             }
         }
+    }
+
+    override fun onWorkManagerButtonClicked() {
+        dashboardNavigationCallback.navigateToWorkManager()
     }
 }

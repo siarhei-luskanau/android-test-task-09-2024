@@ -8,4 +8,5 @@ abstract class DashboardViewModel : ViewModel() {
     abstract fun onLaunched()
     abstract fun onTotalDismissalsAllowedChanged(text: String)
     abstract fun onIntervalBetweenDismissalsChanged(text: String)
+    abstract fun onWorkManagerButtonClicked()
 }
