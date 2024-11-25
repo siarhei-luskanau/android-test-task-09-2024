@@ -14,11 +14,9 @@ env:
 jobs:
 
   jobBuildApp:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest ]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
 
       - uses: actions/checkout@v4
@@ -31,7 +29,7 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
-      - run: ./gradlew assembleDebug assembleRelease --stacktrace
+      - run: ./gradlew ktlintFormat assembleDebug assembleRelease --stacktrace
 
       - uses: actions/upload-artifact@v4
         with:
@@ -43,5 +41,6 @@ jobs:
           name: app-release
           path: app/build/outputs/apk/release
 
-      - name: Update Gradle Wrapper
-        uses: gradle-update/update-gradle-wrapper-action@v2
+      - run: ./gradlew wrapper --gradle-version latest --stacktrace
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
