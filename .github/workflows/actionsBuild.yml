@@ -10,6 +10,7 @@ on:
 
 env:
   JAVA_VERSION: 21
+  JAVA_DISTRIBUTION: 'temurin'
 
 jobs:
 
@@ -24,12 +25,23 @@ jobs:
       - uses: actions/setup-java@v4
         if: ${{ matrix.os != 'self-hosted' }}
         with:
-          distribution: 'temurin'
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
 
       - uses: gradle/actions/setup-gradle@v4
 
-      - run: ./gradlew ktlintFormat assembleDebug assembleRelease --stacktrace
+      - run: ./gradlew wrapper --gradle-version latest --stacktrace
+      - run: ./gradlew wrapper --gradle-version latest --stacktrace
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update Gradle wrapper
+
+      - run: ./gradlew ktlintFormat --stacktrace
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Ktlint format
+
+      - run: ./gradlew assembleDebug assembleRelease --stacktrace
 
       - uses: actions/upload-artifact@v4
         with:
@@ -40,8 +52,3 @@ jobs:
         with:
           name: app-release
           path: app/build/outputs/apk/release
-
-      - run: ./gradlew wrapper --gradle-version latest --stacktrace
-      - run: ./gradlew wrapper --gradle-version latest --stacktrace
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
