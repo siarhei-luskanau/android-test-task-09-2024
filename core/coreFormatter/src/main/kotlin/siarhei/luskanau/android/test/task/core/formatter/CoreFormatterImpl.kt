@@ -1,5 +1,6 @@
 package siarhei.luskanau.android.test.task.core.formatter
 
+import kotlin.time.ExperimentalTime
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.format.DateTimeFormat
@@ -16,6 +17,7 @@ internal class CoreFormatterImpl : CoreFormatter {
         }
     }
 
+    @OptIn(ExperimentalTime::class)
     override fun formatNotificationMessage(date1: LocalDateTime?, date2: LocalDateTime?): String =
         when {
             date1 == null && date2 == null -> "No boots detected"
